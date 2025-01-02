@@ -1,0 +1,47 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "sigma", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.autoTap = true
+_G.autoBattle = true
+
+function autoTapper()
+    while _G.autoTap == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnClickRequest:InvokeServer()
+        wait(.0000000000000000000000000001)
+    end
+end
+
+function autoBattler()
+    while _G.autoBattle == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.BattleService.RF.OnBattleClickRequest:InvokeServer()
+        wait(.0000000000000000000000000001)
+    end
+end
+
+
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "autoclicker",
+	Default = false,
+	Callback = function(Value)
+		_G.autoTap = Value
+        autoTapper()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "auto battle (enter battle first)",
+	Default = false,
+	Callback = function(Value)
+		_G.autoBattle = Value
+        autoBattler()
+	end    
+})
+
+OrionLib.Init()
