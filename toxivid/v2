@@ -1,0 +1,81 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "sigma", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.autoclick = true
+_G.autobattle = true
+_G.autorebirth = true
+
+
+
+function autoclicker()
+    while _G.autoclick == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnClickRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+function autobattler()
+    while _G.autobattle == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.BattleService.RF.OnBattleClickRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+function autorebrither()
+    while _G.autorebirth == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.RebirthService.RF.OnRebirthRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+local Tab = Window:MakeTab({
+	Name = "tp",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "tp to halloween world",
+	Callback = function()
+      	local args = {
+            [1] = "World111"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "autoclick",
+	Default = false,
+	Callback = function(Value)
+        _G.autoclick = Value
+        autoclicker()
+    end
+})
+
+Tab:AddToggle({
+	Name = "autobattle",
+	Default = false,
+	Callback = function(Value)
+        _G.autobattle = Value
+        autobattler()
+    end    
+})
+
+Tab:AddToggle({
+	Name = "autobattle",
+	Default = false,
+	Callback = function(Value)
+        _G.autorebirth = Value
+        autorebrither()
+    end    
+})
+
+
+OrionLib:Init()
