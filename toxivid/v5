@@ -80,6 +80,13 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
+	Name = "tp tool by toxivid",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/toxivid/sixpack-simulator/refs/heads/main/toxivid/tptoplayertool"))()
+    end    
+}) 
+
+Tab:AddButton({
 	Name = "tp to world 2",
 	Callback = function()
       	local args = {
