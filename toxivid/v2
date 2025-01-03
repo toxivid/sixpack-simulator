@@ -69,7 +69,7 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "autobattle",
+	Name = "autorebirth",
 	Default = false,
 	Callback = function(Value)
         _G.autorebirth = Value
