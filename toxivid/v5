@@ -2,9 +2,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "sigma", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 _G.autoclick = true
-_G.autobattle = true
+_G.autowinbattle = true
 _G.autorebirth = true
-
+_G.autobattle = true
 
 function autoclicker()
     while _G.autoclick == true do
@@ -13,8 +13,8 @@ function autoclicker()
     end
 end
 
-function autobattler()
-    while _G.autobattle == true do
+function autowinbattler()
+    while _G.autowinbattle == true do
         game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.BattleService.RF.OnBattleClickRequest:InvokeServer()
         wait(0.00000000000000000000000000001)
     end
@@ -24,6 +24,15 @@ function autorebirther()
     while _G.autorebirth == true do
         game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.RebirthService.RF.OnRebirthRequest:InvokeServer()
         wait(0.00000000000000000000000000001)
+    end
+end
+
+function autobattler()
+    while _G.autobattle == true do
+        wait(4.6)
+        local VirtualInputManager = game:GetService("VirtualInputManager")
+        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
     end
 end
 
@@ -43,12 +52,12 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "autobattle",
+	Name = "autowinbattle",
 	Default = false,
 	Callback = function(Value)
-        _G.autobattle = Value
-        autobattler()
-    end    
+        _G.autowinbattle = Value
+        autowinbattler()
+    end
 })
 
 Tab:AddToggle({
@@ -57,6 +66,21 @@ Tab:AddToggle({
 	Callback = function(Value)
         _G.autorebirth = Value
         autorebirther()
+    end    
+})
+
+Tab:AddToggle({
+	Name = "autobattle",
+	Default = false,
+	Callback = function(Value)
+        _G.autobattle = Value
+        OrionLib:MakeNotification({
+        	Name = "debug",
+	        Content = "make sure ur close to an enemy so u can battle it also if u want it to be afk also enable autowinbattle",
+	        Image = "rbxassetid://4483345998",
+	        Time = 5
+            })
+        autobattler()
     end    
 })
 
