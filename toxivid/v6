@@ -1,0 +1,572 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "sixpack-simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.autoclick = true
+_G.autowinbattle = true
+_G.autorebirth = true
+_G.autobattle = true
+
+function autoclicker()
+    while _G.autoclick == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnClickRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+function autowinbattler()
+    while _G.autowinbattle == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.BattleService.RF.OnBattleClickRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+function autorebirther()
+    while _G.autorebirth == true do
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.RebirthService.RF.OnRebirthRequest:InvokeServer()
+        wait(0.00000000000000000000000000001)
+    end
+end
+
+
+function gotopositon(var1, var2, var3)
+    local position = Vector3.new(var1, var2, var3) -- Replace with your desired coordinates (X, Y, Z)
+    
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:FindFirstChild("HumanoidRootPart")
+    
+    if rootPart then
+        rootPart.CFrame = CFrame.new(position)
+    else
+        warn("HumanoidRootPart not found!")
+    end
+end
+
+
+function autobattler()
+    while _G.autobattle == true do
+        gotopositon(139.221, 6.923, 41.519)
+        local VirtualInputManager = game:GetService("VirtualInputManager")
+        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
+        wait(0.0000000000000000000000000001)
+    end
+end
+
+local Tab = Window:MakeTab({
+	Name = "farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "autoclick",
+	Default = false,
+	Callback = function(Value)
+        _G.autoclick = Value
+        autoclicker()
+    end
+})
+
+Tab:AddToggle({
+	Name = "autowinbattle",
+	Default = false,
+	Callback = function(Value)
+        _G.autowinbattle = Value
+        autowinbattler()
+    end
+})
+
+Tab:AddToggle({
+	Name = "autorebirth",
+	Default = false,
+	Callback = function(Value)
+        _G.autorebirth = Value
+        autorebirther()
+    end    
+})
+
+Tab:AddToggle({
+	Name = "autobattle",
+	Default = false,
+	Callback = function(Value)
+        _G.autobattle = Value
+        autobattler()
+    end    
+})
+
+
+
+local Tab = Window:MakeTab({
+	Name = "tp",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "tp to starter world / world 1 / spawn",
+	Callback = function()
+      	local args = {
+            [1] = "World1",
+            [2] = true
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+    end    
+})
+
+Tab:AddButton({
+	Name = "tp to world 2",
+	Callback = function()
+      	local args = {
+            [1] = "World2"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+    end    
+})
+
+Tab:AddButton({
+	Name = "tp to halloween world 1",
+	Callback = function()
+      	local args = {
+            [1] = "World111"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "tp to halloween world 2",
+	Callback = function()
+      	local args = {
+            [1] = "World222"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "limited 15m world",
+	Callback = function()
+        local args = {
+            [1] = "World15M"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RE.OnTeleportRequest:FireServer(unpack(args))
+  	end    
+})
+
+
+
+local Tab = Window:MakeTab({
+	Name = "auto equip",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+function bestdumbellw1()
+local args = {
+        [1] = "Dumbell2"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell3"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+       [1] = "Dumbell4"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell5"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell6"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell7"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell8"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell9"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+end
+
+function bestdumbellw2()
+    local args = {
+        [1] = "Dumbell10"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell11"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+       [1] = "Dumbell12"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell13"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell14"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell15"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell16"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell17"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    wait(0.000000000000000000000000000001)
+    local args = {
+        [1] = "Dumbell18"
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+end
+
+Tab:AddButton({
+	Name = "overall",
+	Callback = function()
+        bestdumbellw1()
+        bestdumbellw2()
+    end    
+})
+
+Tab:AddButton({
+	Name = "world 1",
+	Callback = function()
+        bestdumbellw1()
+    end    
+})
+
+Tab:AddButton({
+	Name = "world 2",
+	Callback = function()
+        bestdumbellw2()
+    end    
+})
+
+
+
+local Tab = Window:MakeTab({
+	Name = "remote world unlocker",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "purchase world 2",
+	Callback = function()
+        local args = {
+            [1] = "World2"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RF.OnPurchaseNewWorldRequest:InvokeServer(unpack(args))
+    end    
+})
+
+Tab:AddButton({
+	Name = "purchase world 3",
+	Callback = function()
+        local args = {
+            [1] = "World3"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.WorldService.RF.OnPurchaseNewWorldRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "egg opener",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "note: there is a cooldown, pets visible in inventory"
+})
+
+
+local lastopenendegg = nil
+
+_G.autoopenegg = true
+
+function autoeggopener()
+    while _G.autoopenegg == true do
+        if lastopenendegg == 1 then 
+            openegg1()
+        end
+        if lastopenendegg == 2 then 
+            openegg2()
+        end
+        wait(4)
+    end
+end
+
+Tab:AddToggle({
+	Name = "autoeggopener",
+	Default = false,
+	Callback = function(Value)
+        _G.autoopenegg = Value
+        autoeggopener()
+    end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "world 1 eggs / starter world eggs"
+})
+
+
+function openegg1() 
+    local args = {
+        [1] = "Egg1",
+        [2] = {}
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+end
+
+Tab:AddButton({
+	Name = "egg 1 (price: 10)",
+	Callback = function()
+        lastopenendegg = 1
+        openegg1()
+    end    
+})
+
+function openegg2() 
+    local args = {
+        [1] = "Egg2",
+        [2] = {}
+    }
+    game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+end
+
+Tab:AddButton({
+	Name = "egg 2 (price: 125)",
+	Callback = function()
+        lastopenendegg = 2
+        openegg2()
+    end
+})
+
+
+Tab:AddButton({
+	Name = "egg 3 (price: 700)",
+	Callback = function()
+        local args = {
+            [1] = "Egg3",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+Tab:AddLabel("egg 4 costs robux if u want to buy it do it manual")
+
+
+local Section = Tab:AddSection({
+	Name = "world 2 eggs"
+})
+
+Tab:AddButton({
+	Name = "egg 5 (price: 6k)",
+	Callback = function()
+        local args = {
+            [1] = "Egg5",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "egg 6 (price: 70k)",
+	Callback = function()
+        local args = {
+            [1] = "Egg2",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "egg 7 (price: 770k)",
+	Callback = function()
+        local args = {
+            [1] = "Egg8",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+Tab:AddLabel("egg 8 costs robux if u want to buy it do it manual")
+
+
+local Section = Tab:AddSection({
+	Name = "halloween world 1 eggs"
+})
+
+Tab:AddButton({
+	Name = "egg 24 (price: 100 (pumpkins))",
+	Callback = function()
+        local args = {
+            [1] = "Egg24",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+
+    end    
+})
+
+Tab:AddButton({
+	Name = "egg 25 (price: 3k (pumpkins))",
+	Callback = function()
+        local args = {
+            [1] = "Egg25",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+
+    end    
+})
+
+local Section = Tab:AddSection({
+	Name = "halloween world 2 eggs"
+})
+
+Tab:AddButton({
+	Name = "egg 26 (price: 5k (pumpkins))",
+	Callback = function()
+        local args = {
+            [1] = "Egg26",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+Tab:AddButton({
+	Name = "egg 27 (price: 30k (pumpkins))",
+	Callback = function()
+        local args = {
+            [1] = "Egg27",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 22,
+	Max = 200,
+	Default = 22,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "speed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "info",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddLabel("creator: Toxivid")
+Tab:AddLabel("helper: KiyaroPlayz")
+Tab:AddLabel("")
+Tab:AddLabel("failed last update auto open egg it will be v6")
+Tab:AddLabel("")
+Tab:AddLabel("next update:")
+Tab:AddLabel("more tp and everything better maybe new sorting :0")
+Tab:AddLabel("advanced tpr to tp to certain areas quick")
+Tab:AddLabel("more tools by me (2 already finished)")
+Tab:AddLabel("more later")
+Tab:AddLabel("")
+Tab:AddLabel("requests or questions? discord: toxivid dm me!")
+
+
+
+local Tab = Window:MakeTab({
+	Name = "debug",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddLabel("if bugs not mentioned here, dicord: toxivid")
+Tab:AddLabel("this script was tested with solara if u use another executor")
+Tab:AddLabel("it might be the problem with ur executor")
+Tab:AddLabel("")
+Tab:AddLabel("farm")
+Tab:AddLabel("unknown")
+Tab:AddLabel("")
+Tab:AddLabel("tp")
+Tab:AddLabel("do u have the area unlocked?")
+Tab:AddLabel("")
+Tab:AddLabel("egg opener")
+Tab:AddLabel("do u have enough currency for the egg?")
+Tab:AddLabel("u need to be in the area of the egg ur opening")
+Tab:AddLabel("")
+Tab:AddLabel("player")
+Tab:AddLabel("unknown")
+
+
+local Tab = Window:MakeTab({
+	Name = "extras by toxivid :D",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "tp tool by toxivid",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/toxivid/sixpack-simulator/refs/heads/main/toxivid/tptoplayertool"))()
+    end 
+})
+
+OrionLib:Init()
