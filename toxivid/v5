@@ -29,10 +29,16 @@ end
 
 function autobattler()
     while _G.autobattle == true do
+        local lastrebirths = game.Players.LocalPlayer.leaderstats.Rebirths.Value
+        print(lastrebirths)
         wait(4.6)
         local VirtualInputManager = game:GetService("VirtualInputManager")
         VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
         VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
+        if game.Players.LocalPlayer.leaderstats.Rebirths.Value == lastrebirths + 1 then
+            print("player", game.Players.LocalPlayer, "rebirthed")
+            print("sigma boy")
+        end
     end
 end
 
@@ -104,13 +110,6 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "tp tool by toxivid",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/toxivid/sixpack-simulator/refs/heads/main/toxivid/tptoplayertool"))()
-    end    
-}) 
-
-Tab:AddButton({
 	Name = "tp to world 2",
 	Callback = function()
       	local args = {
@@ -153,6 +152,59 @@ Tab:AddButton({
 
 
 local Tab = Window:MakeTab({
+	Name = "auto equip",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "world one",
+	Callback = function()
+        local args = {
+            [1] = "Dumbell2"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell3"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+           [1] = "Dumbell4"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell5"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell6"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell7"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell8"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+        wait(0.000000000000000000000000000001)
+        local args = {
+            [1] = "Dumbell9"
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.DumbellService.RF.OnDumbellChangeRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+
+local Tab = Window:MakeTab({
 	Name = "egg opener",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
@@ -162,13 +214,16 @@ local Section = Tab:AddSection({
 	Name = "note: there is a cooldown, pets visible in inventory"
 })
 
+
+
 local Section = Tab:AddSection({
-	Name = "starter world eggs"
+	Name = "world 1 eggs / starter world eggs"
 })
 
 Tab:AddButton({
 	Name = "egg 1 (price: 10)",
 	Callback = function()
+        lastopenendegg = 1
         local args = {
             [1] = "Egg1",
             [2] = {}
@@ -176,7 +231,6 @@ Tab:AddButton({
         game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
     end    
 })
-
 
 Tab:AddButton({
 	Name = "egg 2 (price: 125)",
@@ -200,6 +254,51 @@ Tab:AddButton({
         game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
     end    
 })
+
+Tab:AddLabel("egg 4 costs robux if u want to buy it do it manual")
+
+
+local Section = Tab:AddSection({
+	Name = "world 2 eggs"
+})
+
+Tab:AddButton({
+	Name = "egg 1 (price: 10)",
+	Callback = function()
+        local args = {
+            [1] = "Egg1",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "egg 6 (price: 70k)",
+	Callback = function()
+        local args = {
+            [1] = "Egg2",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "egg 7 (price: 770k)",
+	Callback = function()
+        local args = {
+            [1] = "Egg8",
+            [2] = {}
+        }
+        game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.5.1").knit.Services.EggService.RF.OnEggOpenRequest:InvokeServer(unpack(args))
+    end    
+})
+
+Tab:AddLabel("egg 8 costs robux if u want to buy it do it manual")
+
 
 local Section = Tab:AddSection({
 	Name = "halloween world 1 eggs"
@@ -284,9 +383,12 @@ local Tab = Window:MakeTab({
 Tab:AddLabel("creator: Toxivid")
 Tab:AddLabel("helper: KiyaroPlayz")
 Tab:AddLabel("")
+Tab:AddLabel("failed last update auto open egg it will be v6")
+Tab:AddLabel("")
 Tab:AddLabel("next update:")
-Tab:AddLabel("auto egg opening while playing")
-Tab:AddLabel("auto best dumbell equip")
+Tab:AddLabel("more tp and everything better maybe new sorting :0")
+Tab:AddLabel("advanced tpr to tp to certain areas quick")
+Tab:AddLabel("more tools by me (2 already finished)")
 Tab:AddLabel("more later")
 Tab:AddLabel("")
 Tab:AddLabel("requests or questions? discord: toxivid dm me!")
@@ -315,5 +417,19 @@ Tab:AddLabel("u need to be in the area of the egg ur opening")
 Tab:AddLabel("")
 Tab:AddLabel("player")
 Tab:AddLabel("unknown")
+
+
+local Tab = Window:MakeTab({
+	Name = "extras by toxivid :D",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "tp tool by toxivid",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/toxivid/sixpack-simulator/refs/heads/main/toxivid/tptoplayertool"))()
+    end 
+})
 
 OrionLib:Init()
