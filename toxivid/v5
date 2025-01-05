@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "sigma", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "sixpack-simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 _G.autoclick = true
 _G.autowinbattle = true
